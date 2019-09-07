@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>推荐列表开发 | React从零到一打造精美WebApp</title>
+    <meta name="description" content="采用React Hooks + Redux + immutable.js打造完整前端工作流，进阶前端综合能力">
+    
+    
+    <link rel="preload" href="/react-cloud-music/assets/css/0.styles.bfbe80ea.css" as="style"><link rel="preload" href="/react-cloud-music/assets/js/app.f62a8271.js" as="script"><link rel="preload" href="/react-cloud-music/assets/js/2.8eb8cfb1.js" as="script"><link rel="preload" href="/react-cloud-music/assets/js/14.789a7e83.js" as="script"><link rel="prefetch" href="/react-cloud-music/assets/js/10.fc349c74.js"><link rel="prefetch" href="/react-cloud-music/assets/js/11.679668b4.js"><link rel="prefetch" href="/react-cloud-music/assets/js/12.2edea2db.js"><link rel="prefetch" href="/react-cloud-music/assets/js/13.63377f41.js"><link rel="prefetch" href="/react-cloud-music/assets/js/15.cadf5337.js"><link rel="prefetch" href="/react-cloud-music/assets/js/16.63a6c91d.js"><link rel="prefetch" href="/react-cloud-music/assets/js/17.2f2c22b6.js"><link rel="prefetch" href="/react-cloud-music/assets/js/18.204a399e.js"><link rel="prefetch" href="/react-cloud-music/assets/js/19.de1e4a7d.js"><link rel="prefetch" href="/react-cloud-music/assets/js/20.c7306f28.js"><link rel="prefetch" href="/react-cloud-music/assets/js/21.e9d2af42.js"><link rel="prefetch" href="/react-cloud-music/assets/js/22.d7c85e2f.js"><link rel="prefetch" href="/react-cloud-music/assets/js/23.bf023f69.js"><link rel="prefetch" href="/react-cloud-music/assets/js/24.a0844b43.js"><link rel="prefetch" href="/react-cloud-music/assets/js/25.bf303e71.js"><link rel="prefetch" href="/react-cloud-music/assets/js/26.ea40210b.js"><link rel="prefetch" href="/react-cloud-music/assets/js/27.3d11bb6f.js"><link rel="prefetch" href="/react-cloud-music/assets/js/28.8c30d249.js"><link rel="prefetch" href="/react-cloud-music/assets/js/29.239ad3c7.js"><link rel="prefetch" href="/react-cloud-music/assets/js/3.50fcc5dc.js"><link rel="prefetch" href="/react-cloud-music/assets/js/30.e550b619.js"><link rel="prefetch" href="/react-cloud-music/assets/js/31.28b42380.js"><link rel="prefetch" href="/react-cloud-music/assets/js/32.2ffe30da.js"><link rel="prefetch" href="/react-cloud-music/assets/js/33.05f38121.js"><link rel="prefetch" href="/react-cloud-music/assets/js/34.c0289c2b.js"><link rel="prefetch" href="/react-cloud-music/assets/js/35.a5c739da.js"><link rel="prefetch" href="/react-cloud-music/assets/js/36.ed830a02.js"><link rel="prefetch" href="/react-cloud-music/assets/js/4.2f35b444.js"><link rel="prefetch" href="/react-cloud-music/assets/js/5.b911acb7.js"><link rel="prefetch" href="/react-cloud-music/assets/js/6.193c3fcd.js"><link rel="prefetch" href="/react-cloud-music/assets/js/7.6ec870b7.js"><link rel="prefetch" href="/react-cloud-music/assets/js/8.56fc9fe9.js"><link rel="prefetch" href="/react-cloud-music/assets/js/9.6873e82a.js">
+    <link rel="stylesheet" href="/react-cloud-music/assets/css/0.styles.bfbe80ea.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/react-cloud-music/" class="home-link router-link-active"><!----> <span class="site-name">React从零到一打造精美WebApp</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/sanyuan0704/react-cloud-music" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://juejin.im/user/5c45ddf06fb9a04a006f5491" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/sanyuan0704/react-cloud-music" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://juejin.im/user/5c45ddf06fb9a04a006f5491" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第一章:项目说明及初始化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter1/" class="sidebar-link">前言</a></li><li><a href="/react-cloud-music/chapter1/install.html" class="sidebar-link">项目介绍</a></li><li><a href="/react-cloud-music/chapter1/start.html" class="sidebar-link">初始化项目</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第二章:搭建项目基础骨架</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter2/intro.html" class="sidebar-link">简介</a></li><li><a href="/react-cloud-music/chapter2/route.html" class="sidebar-link">路由配置</a></li><li><a href="/react-cloud-music/chapter2/tab.html" class="sidebar-link">公共组件开发</a></li><li><a href="/react-cloud-music/chapter2/redux.html" class="sidebar-link">redux准备</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>第三章:推荐模块开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter3/intro.html" class="sidebar-link">简介</a></li><li><a href="/react-cloud-music/chapter3/slider.html" class="sidebar-link">轮播组件开发</a></li><li><a href="/react-cloud-music/chapter3/list.html" class="active sidebar-link">推荐列表开发</a></li><li><a href="/react-cloud-music/chapter3/scroll.html" class="sidebar-link">打造scroll基础组件</a></li><li><a href="/react-cloud-music/chapter3/redux.html" class="sidebar-link">数据层开发</a></li><li><a href="/react-cloud-music/chapter3/optimize.html" class="sidebar-link">性能及体验优化</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第四章:歌手列表模块开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter4/intro.html" class="sidebar-link">简介</a></li><li><a href="/react-cloud-music/chapter4/horizen-item.html" class="sidebar-link">横向分类列表开发</a></li><li><a href="/react-cloud-music/chapter4/list.html" class="sidebar-link">歌手列表部分的开发</a></li><li><a href="/react-cloud-music/chapter4/redux.html" class="sidebar-link">数据层开发</a></li><li><a href="/react-cloud-music/chapter4/load-more.html" class="sidebar-link">上拉/下拉加载更多实现</a></li><li><a href="/react-cloud-music/chapter4/optimize.html" class="sidebar-link">相关优化</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第五章:排行榜单模块开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter5/intro.html" class="sidebar-link">简介</a></li><li><a href="/react-cloud-music/chapter5/hooks.html" class="sidebar-link">思考题探讨</a></li><li><a href="/react-cloud-music/chapter5/redux.html" class="sidebar-link">数据层开发</a></li><li><a href="/react-cloud-music/chapter5/ui.html" class="sidebar-link">Rank组件开发</a></li><li><a href="/react-cloud-music/chapter5/optimize.html" class="sidebar-link">一些细节的优化</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第六章:歌单详情模块开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter6/intro.html" class="sidebar-link">简介</a></li><li><a href="/react-cloud-music/chapter6/transition.html" class="sidebar-link">进场切页动画</a></li><li><a href="/react-cloud-music/chapter6/template.html" class="sidebar-link">静态模板开发</a></li><li><a href="/react-cloud-music/chapter6/data.html" class="sidebar-link">数据层开发</a></li><li><a href="/react-cloud-music/chapter6/optimize.html" class="sidebar-link">列表性能优化:拿到的数据有一万条，怎么办？</a></li><li><a href="/react-cloud-music/chapter6/rank.html" class="sidebar-link">组件复用:榜单详情开发</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第七章:歌手详情模块开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第八章:播放器内核实现(迷你和全屏版开发)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第九章:播放器内核实现(歌词和播放列表开发)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第十章:搜索模块开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第十一章:redux及中间件原理解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第十二章:本地存储相关功能开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第十三章:系列回顾总结</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="推荐列表开发"><a href="#推荐列表开发" aria-hidden="true" class="header-anchor">#</a> 推荐列表开发</h1> <p>首先在recommend组件中:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Slider <span class="token keyword">from</span> <span class="token string">'../../components/slider'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> RecommendList <span class="token keyword">from</span> <span class="token string">'../../components/list'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">Recommend</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token comment">// mock数据</span>
+  <span class="token keyword">const</span> bannerList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span> imageUrl<span class="token punctuation">:</span> <span class="token string">&quot;http://p1.music.126.net/ZYLJ2oZn74yUz5x8NBGkVA==/109951164331219056.jpg&quot;</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> recommendList <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      picUrl<span class="token punctuation">:</span> <span class="token string">&quot;https://p1.music.126.net/fhmefjUfMD-8qtj3JKeHbA==/18999560928537533.jpg&quot;</span><span class="token punctuation">,</span>
+      playCount<span class="token punctuation">:</span> <span class="token number">17171122</span><span class="token punctuation">,</span>
+      name<span class="token punctuation">:</span> <span class="token string">&quot;朴树、许巍、李健、郑钧、老狼、赵雷&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Slider bannerList<span class="token operator">=</span><span class="token punctuation">{</span>bannerList<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Slider<span class="token operator">&gt;</span>
+      Recommend
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> React<span class="token punctuation">.</span><span class="token function">memo</span><span class="token punctuation">(</span>Recommend<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>现在来开发list这个组件，首先展示DOM结构，</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> 
+  ListWrapper<span class="token punctuation">,</span>
+  ListItem<span class="token punctuation">,</span>
+  List
+<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./style'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">RecommendList</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>ListWrapper<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>h1 className<span class="token operator">=</span><span class="token string">&quot;title&quot;</span><span class="token operator">&gt;</span>推荐歌单<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>List<span class="token operator">&gt;</span>
+        <span class="token punctuation">{</span>
+          props<span class="token punctuation">.</span>recommendList<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>
+              <span class="token operator">&lt;</span>ListItem key<span class="token operator">=</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>id <span class="token operator">+</span> index<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;img_wrapper&quot;</span><span class="token operator">&gt;</span>
+                  <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;decorate&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                    <span class="token punctuation">{</span><span class="token comment">/* 加此参数可以减小请求的图片资源大小 */</span><span class="token punctuation">}</span>
+                    <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>picUrl <span class="token operator">+</span> <span class="token string">&quot;?param=300x300&quot;</span><span class="token punctuation">}</span> width<span class="token operator">=</span><span class="token string">&quot;100%&quot;</span> height<span class="token operator">=</span><span class="token string">&quot;100%&quot;</span> alt<span class="token operator">=</span><span class="token string">&quot;music&quot;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+                  <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;play_count&quot;</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>i className<span class="token operator">=</span><span class="token string">&quot;iconfont play&quot;</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span>#xe885<span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>i<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>span className<span class="token operator">=</span><span class="token string">&quot;count&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token function">getCount</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>playCount<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+                  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">&quot;desc&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span><span class="token operator">/</span>ListItem<span class="token operator">&gt;</span>
+            <span class="token punctuation">)</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>List<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>ListWrapper<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+ 
+<span class="token keyword">export</span> <span class="token keyword">default</span> React<span class="token punctuation">.</span><span class="token function">memo</span><span class="token punctuation">(</span>RecommendList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>这里需要提醒大家一下，getCount是一个工具类函数，与我们的业务功能关系不大，我们把它放到专门的目录下去编写：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//大家按照这个目录层级新建文件</span>
+<span class="token comment">//src/api/utils.js</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">getCount</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">count</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>count <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>count <span class="token operator">&lt;</span> <span class="token number">10000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>count <span class="token operator">/</span> <span class="token number">10000</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">10000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>count<span class="token operator">/</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">10</span> <span class="token operator">+</span> <span class="token string">&quot;万&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span>  <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>count <span class="token operator">/</span> <span class="token number">10000000</span><span class="token punctuation">)</span><span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token string">&quot;亿&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>刚才的list/index.js中并没有引入这个函数，现在需要加一行引入代码:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> getCount <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../api/utils&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><p>样式部分的js代码如下:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> styled <span class="token keyword">from</span> <span class="token string">'styled-components'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> style <span class="token keyword">from</span> <span class="token string">'../../assets/global-style'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> ListWrapper <span class="token operator">=</span> styled<span class="token punctuation">.</span>div<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  max-width: 100%;
+  .title{
+    font-weight: 700;
+    padding-left: 6px;
+    font-size: 14px;
+    line-height: 60px;
+    color: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>style<span class="token punctuation">[</span><span class="token string">&quot;font-color&quot;</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;
+  }
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> List <span class="token operator">=</span> styled<span class="token punctuation">.</span>div<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> ListItem <span class="token operator">=</span> styled<span class="token punctuation">.</span>div<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  position: relative;
+  width: 32%;
+
+  .img_wrapper{
+    .decorate {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 35px;
+      border-radius: 3px;
+      background: linear-gradient(hsla(0,0%,43%,.4),hsla(0,0%,100%,0));
+    }
+    position: relative;
+    height: 0;
+    padding-bottom: 100%;
+    .play_count {
+      position: absolute;
+      right: 2px;
+      top: 2px;
+      font-size: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>style<span class="token punctuation">[</span><span class="token string">&quot;font-size-s&quot;</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;
+      line-height: 15px;
+      color: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>style<span class="token punctuation">[</span><span class="token string">&quot;font-color-light&quot;</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;
+      .play{
+        vertical-align: top;
+      }
+    }
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+    }
+  }
+  .desc {
+      overflow: hidden;
+      margin-top: 2px;
+      padding: 0 2px;
+      height: 50px;
+      text-align: left;
+      font-size: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>style<span class="token punctuation">[</span><span class="token string">&quot;font-size-s&quot;</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;
+      line-height: 1.4;
+      color: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>style<span class="token punctuation">[</span><span class="token string">&quot;font-color-desc&quot;</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;
+    }
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+</code></pre></div><p>值得关注的是：</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>decorate<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>上面style.js中对应样式:</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.decorate</span> <span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 35px<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span><span class="token function">hsla</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span>0%<span class="token punctuation">,</span>43%<span class="token punctuation">,</span>.4<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">hsla</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span>0%<span class="token punctuation">,</span>100%<span class="token punctuation">,</span>0<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这个标签的样式，它的作用就是给图片上的图标和文字提供一个遮罩，因为在字体颜色是白色，在面对白色图片背景的时候，文字会看不清或者看不到，因此提供一个阴影来衬托出文字，这个细节很容易被忽略, 希望大家也能注意一下。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/react-cloud-music/chapter3/slider.html" class="prev">
+          轮播组件开发
+        </a></span> <span class="next"><a href="/react-cloud-music/chapter3/scroll.html">
+          打造scroll基础组件
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/react-cloud-music/assets/js/app.f62a8271.js" defer></script><script src="/react-cloud-music/assets/js/2.8eb8cfb1.js" defer></script><script src="/react-cloud-music/assets/js/14.789a7e83.js" defer></script>
+  </body>
+</html>

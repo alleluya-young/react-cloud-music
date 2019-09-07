@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>打造scroll基础组件 | React从零到一打造精美WebApp</title>
+    <meta name="description" content="采用React Hooks + Redux + immutable.js打造完整前端工作流，进阶前端综合能力">
+    
+    
+    <link rel="preload" href="/react-cloud-music/assets/css/0.styles.bfbe80ea.css" as="style"><link rel="preload" href="/react-cloud-music/assets/js/app.f62a8271.js" as="script"><link rel="preload" href="/react-cloud-music/assets/js/2.8eb8cfb1.js" as="script"><link rel="preload" href="/react-cloud-music/assets/js/17.2f2c22b6.js" as="script"><link rel="prefetch" href="/react-cloud-music/assets/js/10.fc349c74.js"><link rel="prefetch" href="/react-cloud-music/assets/js/11.679668b4.js"><link rel="prefetch" href="/react-cloud-music/assets/js/12.2edea2db.js"><link rel="prefetch" href="/react-cloud-music/assets/js/13.63377f41.js"><link rel="prefetch" href="/react-cloud-music/assets/js/14.789a7e83.js"><link rel="prefetch" href="/react-cloud-music/assets/js/15.cadf5337.js"><link rel="prefetch" href="/react-cloud-music/assets/js/16.63a6c91d.js"><link rel="prefetch" href="/react-cloud-music/assets/js/18.204a399e.js"><link rel="prefetch" href="/react-cloud-music/assets/js/19.de1e4a7d.js"><link rel="prefetch" href="/react-cloud-music/assets/js/20.c7306f28.js"><link rel="prefetch" href="/react-cloud-music/assets/js/21.e9d2af42.js"><link rel="prefetch" href="/react-cloud-music/assets/js/22.d7c85e2f.js"><link rel="prefetch" href="/react-cloud-music/assets/js/23.bf023f69.js"><link rel="prefetch" href="/react-cloud-music/assets/js/24.a0844b43.js"><link rel="prefetch" href="/react-cloud-music/assets/js/25.bf303e71.js"><link rel="prefetch" href="/react-cloud-music/assets/js/26.ea40210b.js"><link rel="prefetch" href="/react-cloud-music/assets/js/27.3d11bb6f.js"><link rel="prefetch" href="/react-cloud-music/assets/js/28.8c30d249.js"><link rel="prefetch" href="/react-cloud-music/assets/js/29.239ad3c7.js"><link rel="prefetch" href="/react-cloud-music/assets/js/3.50fcc5dc.js"><link rel="prefetch" href="/react-cloud-music/assets/js/30.e550b619.js"><link rel="prefetch" href="/react-cloud-music/assets/js/31.28b42380.js"><link rel="prefetch" href="/react-cloud-music/assets/js/32.2ffe30da.js"><link rel="prefetch" href="/react-cloud-music/assets/js/33.05f38121.js"><link rel="prefetch" href="/react-cloud-music/assets/js/34.c0289c2b.js"><link rel="prefetch" href="/react-cloud-music/assets/js/35.a5c739da.js"><link rel="prefetch" href="/react-cloud-music/assets/js/36.ed830a02.js"><link rel="prefetch" href="/react-cloud-music/assets/js/4.2f35b444.js"><link rel="prefetch" href="/react-cloud-music/assets/js/5.b911acb7.js"><link rel="prefetch" href="/react-cloud-music/assets/js/6.193c3fcd.js"><link rel="prefetch" href="/react-cloud-music/assets/js/7.6ec870b7.js"><link rel="prefetch" href="/react-cloud-music/assets/js/8.56fc9fe9.js"><link rel="prefetch" href="/react-cloud-music/assets/js/9.6873e82a.js">
+    <link rel="stylesheet" href="/react-cloud-music/assets/css/0.styles.bfbe80ea.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/react-cloud-music/" class="home-link router-link-active"><!----> <span class="site-name">React从零到一打造精美WebApp</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/sanyuan0704/react-cloud-music" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://juejin.im/user/5c45ddf06fb9a04a006f5491" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/sanyuan0704/react-cloud-music" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub地址
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://juejin.im/user/5c45ddf06fb9a04a006f5491" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  掘金
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第一章:项目说明及初始化</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter1/" class="sidebar-link">前言</a></li><li><a href="/react-cloud-music/chapter1/install.html" class="sidebar-link">项目介绍</a></li><li><a href="/react-cloud-music/chapter1/start.html" class="sidebar-link">初始化项目</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第二章:搭建项目基础骨架</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter2/intro.html" class="sidebar-link">简介</a></li><li><a href="/react-cloud-music/chapter2/route.html" class="sidebar-link">路由配置</a></li><li><a href="/react-cloud-music/chapter2/tab.html" class="sidebar-link">公共组件开发</a></li><li><a href="/react-cloud-music/chapter2/redux.html" class="sidebar-link">redux准备</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>第三章:推荐模块开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter3/intro.html" class="sidebar-link">简介</a></li><li><a href="/react-cloud-music/chapter3/slider.html" class="sidebar-link">轮播组件开发</a></li><li><a href="/react-cloud-music/chapter3/list.html" class="sidebar-link">推荐列表开发</a></li><li><a href="/react-cloud-music/chapter3/scroll.html" class="active sidebar-link">打造scroll基础组件</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/react-cloud-music/chapter3/scroll.html#分步拆解scroll组件" class="sidebar-link">分步拆解scroll组件</a></li><li class="sidebar-sub-header"><a href="/react-cloud-music/chapter3/scroll.html#综合代码" class="sidebar-link">综合代码</a></li><li class="sidebar-sub-header"><a href="/react-cloud-music/chapter3/scroll.html#在项目中应用" class="sidebar-link">在项目中应用</a></li></ul></li><li><a href="/react-cloud-music/chapter3/redux.html" class="sidebar-link">数据层开发</a></li><li><a href="/react-cloud-music/chapter3/optimize.html" class="sidebar-link">性能及体验优化</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第四章:歌手列表模块开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter4/intro.html" class="sidebar-link">简介</a></li><li><a href="/react-cloud-music/chapter4/horizen-item.html" class="sidebar-link">横向分类列表开发</a></li><li><a href="/react-cloud-music/chapter4/list.html" class="sidebar-link">歌手列表部分的开发</a></li><li><a href="/react-cloud-music/chapter4/redux.html" class="sidebar-link">数据层开发</a></li><li><a href="/react-cloud-music/chapter4/load-more.html" class="sidebar-link">上拉/下拉加载更多实现</a></li><li><a href="/react-cloud-music/chapter4/optimize.html" class="sidebar-link">相关优化</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第五章:排行榜单模块开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter5/intro.html" class="sidebar-link">简介</a></li><li><a href="/react-cloud-music/chapter5/hooks.html" class="sidebar-link">思考题探讨</a></li><li><a href="/react-cloud-music/chapter5/redux.html" class="sidebar-link">数据层开发</a></li><li><a href="/react-cloud-music/chapter5/ui.html" class="sidebar-link">Rank组件开发</a></li><li><a href="/react-cloud-music/chapter5/optimize.html" class="sidebar-link">一些细节的优化</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第六章:歌单详情模块开发</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/react-cloud-music/chapter6/intro.html" class="sidebar-link">简介</a></li><li><a href="/react-cloud-music/chapter6/transition.html" class="sidebar-link">进场切页动画</a></li><li><a href="/react-cloud-music/chapter6/template.html" class="sidebar-link">静态模板开发</a></li><li><a href="/react-cloud-music/chapter6/data.html" class="sidebar-link">数据层开发</a></li><li><a href="/react-cloud-music/chapter6/optimize.html" class="sidebar-link">列表性能优化:拿到的数据有一万条，怎么办？</a></li><li><a href="/react-cloud-music/chapter6/rank.html" class="sidebar-link">组件复用:榜单详情开发</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第七章:歌手详情模块开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第八章:播放器内核实现(迷你和全屏版开发)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第九章:播放器内核实现(歌词和播放列表开发)</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第十章:搜索模块开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第十一章:redux及中间件原理解析</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第十二章:本地存储相关功能开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>第十三章:系列回顾总结</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="打造scroll基础组件"><a href="#打造scroll基础组件" aria-hidden="true" class="header-anchor">#</a> 打造scroll基础组件</h1> <p>本项目最大的亮点之一就是采用better-scroll打造了移动端滑动基础组件，不仅仅可以用在本项目，也可以直接移植到其他所有的移动端React项目。现在，我们来一起封装这个实用且强大的组件。</p> <h2 id="分步拆解scroll组件"><a href="#分步拆解scroll组件" aria-hidden="true" class="header-anchor">#</a> 分步拆解scroll组件</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//安装better-scroll</span>
+npm install better<span class="token operator">-</span>scroll@next <span class="token operator">--</span>save
+</code></pre></div><p>我们依然采用函数式组件的形式进行开发，不过作为一个通用组件，scroll组件在业务中会被经常取到原生DOM对象，而函数式组件天生不具备被上层组件直接调用ref的条件，因此需要用React当中一些特殊的方式来处理, 即使用forwardRef进行包裹。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> Scroll <span class="token operator">=</span> <span class="token function">forwardRef</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> ref</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">//编写组件内容</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>首先梳理一下这个组件需要接受哪些参数:</p> <div class="language-js extra-class"><pre class="language-js"><code>Scroll<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+  direction<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">oneOf</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'vertical'</span><span class="token punctuation">,</span> <span class="token string">'horizental'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">//滚动的方向</span>
+  click<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span><span class="token comment">//是否支持点击</span>
+  refresh<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token punctuation">,</span><span class="token comment">//是否刷新</span>
+  onScroll<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>func<span class="token punctuation">,</span><span class="token comment">//滑动触发的回调函数</span>
+  pullUp<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>func<span class="token punctuation">,</span><span class="token comment">//上拉加载逻辑</span>
+  pullDown<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>func<span class="token punctuation">,</span><span class="token comment">//下拉加载逻辑</span>
+  pullUpLoading<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token punctuation">,</span><span class="token comment">//是否显示上拉loading动画</span>
+  pullDownLoading<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token punctuation">,</span><span class="token comment">//是否显示下拉loading动画</span>
+  bounceTop<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token punctuation">,</span><span class="token comment">//是否支持向上吸顶</span>
+  bounceBottom<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token comment">//是否支持向下吸底</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>目前归纳出了这些可能的参数，也正是后面的开发中所需要的, 给他们赋默认值:</p> <div class="language-js extra-class"><pre class="language-js"><code>Scroll<span class="token punctuation">.</span>defaultProps <span class="token operator">=</span> <span class="token punctuation">{</span>
+  direction<span class="token punctuation">:</span> <span class="token string">&quot;vertical&quot;</span><span class="token punctuation">,</span>
+  click<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  refresh<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  onScroll<span class="token punctuation">:</span><span class="token keyword">null</span><span class="token punctuation">,</span>
+  pullUpLoading<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  pullDownLoading<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  pullUp<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  pullDown<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  bounceTop<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  bounceBottom<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>现在来写scroll组件的核心逻辑代码，首先声明如下hooks变量:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//better-scroll实例对象</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>bScroll<span class="token punctuation">,</span> setBScroll<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//current指向初始化bs实例需要的DOM元素 </span>
+<span class="token keyword">const</span> scrollContaninerRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>从外面接受props，解构赋值拿到这些参数:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> <span class="token punctuation">{</span> direction<span class="token punctuation">,</span> click<span class="token punctuation">,</span> refresh<span class="token punctuation">,</span> pullUpLoading<span class="token punctuation">,</span> pullDownLoading<span class="token punctuation">,</span> bounceTop<span class="token punctuation">,</span> bounceBottom <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> pullUp<span class="token punctuation">,</span> pullDown<span class="token punctuation">,</span> onScroll <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+</code></pre></div><p>接下来创建better-scroll，</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> scroll <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BScroll</span><span class="token punctuation">(</span>scrollContaninerRef<span class="token punctuation">.</span>current<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    scrollX<span class="token punctuation">:</span> direction <span class="token operator">===</span> <span class="token string">&quot;horizental&quot;</span><span class="token punctuation">,</span>
+    scrollY<span class="token punctuation">:</span> direction <span class="token operator">===</span> <span class="token string">&quot;vertical&quot;</span><span class="token punctuation">,</span>
+    probeType<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+    click<span class="token punctuation">:</span> click<span class="token punctuation">,</span>
+    bounce<span class="token punctuation">:</span><span class="token punctuation">{</span>
+      top<span class="token punctuation">:</span> bounceTop<span class="token punctuation">,</span>
+      bottom<span class="token punctuation">:</span> bounceBottom
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setBScroll</span><span class="token punctuation">(</span>scroll<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setBScroll</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>每次重新渲染都要刷新实例，防止无法滑动:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>refresh <span class="token operator">&amp;&amp;</span> bScroll<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    bScroll<span class="token punctuation">.</span><span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>给实例绑定scroll事件,</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>bScroll <span class="token operator">||</span> <span class="token operator">!</span>onScroll<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+  bScroll<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'scroll'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">scroll</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">onScroll</span><span class="token punctuation">(</span>scroll<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    bScroll<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string">'scroll'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onScroll<span class="token punctuation">,</span> bScroll<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>进行上拉到底的判断，调用上拉刷新的函数</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>bScroll <span class="token operator">||</span> <span class="token operator">!</span>pullUp<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+  bScroll<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'scrollEnd'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">//判断是否滑动到了底部</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>bScroll<span class="token punctuation">.</span>y <span class="token operator">&lt;=</span> bScroll<span class="token punctuation">.</span>maxScrollY <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">pullUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    bScroll<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string">'scrollEnd'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>pullUp<span class="token punctuation">,</span> bScroll<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>进行下拉的判断，调用下拉刷新的函数</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>bScroll <span class="token operator">||</span> <span class="token operator">!</span>pullDown<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+  bScroll<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'touchEnd'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">pos</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">//判断用户的下拉动作</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>pos<span class="token punctuation">.</span>y <span class="token operator">&gt;</span> <span class="token number">50</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">pullDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    bScroll<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string">'touchEnd'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>pullDown<span class="token punctuation">,</span> bScroll<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>完成了滑动事件、上拉下拉事件的判断，现在需要给外界暴露组件方法，如:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//上层组件代码</span>
+<span class="token keyword">const</span> scrollRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token operator">&lt;</span>Scroll ref<span class="token operator">=</span><span class="token punctuation">{</span>scrollRef<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Scroll<span class="token operator">&gt;</span>  
+</code></pre></div><p>想要通过这种调用方法的方式刷新scroll组件：</p> <div class="language-js extra-class"><pre class="language-js"><code>scrollRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>这应该怎么办呢?
+React Hooks中的useImperativeHandle已经给了我们解决方案，我们这样做就好了:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 一般和forwardRef一起使用，ref已经在forWardRef中默认传入</span>
+<span class="token function">useImperativeHandle</span><span class="token punctuation">(</span>ref<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">//给外界暴露refresh方法</span>
+  <span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>bScroll<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      bScroll<span class="token punctuation">.</span><span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      bScroll<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">//给外界暴露getBScroll方法, 提供bs实例</span>
+  <span class="token function">getBScroll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>bScroll<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> bScroll<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>剩下的是UI的渲染工作:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">return</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>ScrollContainer ref<span class="token operator">=</span><span class="token punctuation">{</span>scrollContaninerRef<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">{</span>props<span class="token punctuation">.</span>children<span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>ScrollContainer<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>同时贴出样式部分的js代码:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> ScrollContainer <span class="token operator">=</span> styled<span class="token punctuation">.</span>div<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+</span><span class="token template-punctuation string">`</span></span>
+</code></pre></div><p>加载动画部分涉及到loading组件我们放到下一章拆解：）</p> <h2 id="综合代码"><a href="#综合代码" aria-hidden="true" class="header-anchor">#</a> 综合代码</h2> <p>这里给出综合后的代码:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> forwardRef<span class="token punctuation">,</span> useState<span class="token punctuation">,</span>useEffect<span class="token punctuation">,</span> useRef<span class="token punctuation">,</span> useImperativeHandle <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;react&quot;</span>
+<span class="token keyword">import</span> PropTypes <span class="token keyword">from</span> <span class="token string">&quot;prop-types&quot;</span>
+<span class="token keyword">import</span> BScroll <span class="token keyword">from</span> <span class="token string">&quot;better-scroll&quot;</span>
+<span class="token keyword">import</span> styled <span class="token keyword">from</span> <span class="token string">'styled-components'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> ScrollContainer <span class="token operator">=</span> styled<span class="token punctuation">.</span>div<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+</span><span class="token template-punctuation string">`</span></span>
+<span class="token keyword">const</span> Scroll <span class="token operator">=</span> <span class="token function">forwardRef</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> ref</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">[</span>bScroll<span class="token punctuation">,</span> setBScroll<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> scrollContaninerRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> direction<span class="token punctuation">,</span> click<span class="token punctuation">,</span> refresh<span class="token punctuation">,</span>  bounceTop<span class="token punctuation">,</span> bounceBottom <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> pullUp<span class="token punctuation">,</span> pullDown<span class="token punctuation">,</span> onScroll <span class="token punctuation">}</span> <span class="token operator">=</span> props<span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> scroll <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BScroll</span><span class="token punctuation">(</span>scrollContaninerRef<span class="token punctuation">.</span>current<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      scrollX<span class="token punctuation">:</span> direction <span class="token operator">===</span> <span class="token string">&quot;horizental&quot;</span><span class="token punctuation">,</span>
+      scrollY<span class="token punctuation">:</span> direction <span class="token operator">===</span> <span class="token string">&quot;vertical&quot;</span><span class="token punctuation">,</span>
+      probeType<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+      click<span class="token punctuation">:</span> click<span class="token punctuation">,</span>
+      bounce<span class="token punctuation">:</span><span class="token punctuation">{</span>
+        top<span class="token punctuation">:</span> bounceTop<span class="token punctuation">,</span>
+        bottom<span class="token punctuation">:</span> bounceBottom
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setBScroll</span><span class="token punctuation">(</span>scroll<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">setBScroll</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// eslint-disable-next-line</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>bScroll <span class="token operator">||</span> <span class="token operator">!</span>onScroll<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    bScroll<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'scroll'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">scroll</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token function">onScroll</span><span class="token punctuation">(</span>scroll<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      bScroll<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string">'scroll'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>onScroll<span class="token punctuation">,</span> bScroll<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>bScroll <span class="token operator">||</span> <span class="token operator">!</span>pullUp<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    bScroll<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'scrollEnd'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">//判断是否滑动到了底部</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>bScroll<span class="token punctuation">.</span>y <span class="token operator">&lt;=</span> bScroll<span class="token punctuation">.</span>maxScrollY <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">pullUp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      bScroll<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string">'scrollEnd'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>pullUp<span class="token punctuation">,</span> bScroll<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>bScroll <span class="token operator">||</span> <span class="token operator">!</span>pullDown<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    bScroll<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'touchEnd'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">pos</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token comment">//判断用户的下拉动作</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>pos<span class="token punctuation">.</span>y <span class="token operator">&gt;</span> <span class="token number">50</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">pullDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      bScroll<span class="token punctuation">.</span><span class="token function">off</span><span class="token punctuation">(</span><span class="token string">'touchEnd'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>pullDown<span class="token punctuation">,</span> bScroll<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>refresh <span class="token operator">&amp;&amp;</span> bScroll<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      bScroll<span class="token punctuation">.</span><span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useImperativeHandle</span><span class="token punctuation">(</span>ref<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>bScroll<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        bScroll<span class="token punctuation">.</span><span class="token function">refresh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        bScroll<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">getBScroll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>bScroll<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> bScroll<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>ScrollContainer ref<span class="token operator">=</span><span class="token punctuation">{</span>scrollContaninerRef<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+      <span class="token punctuation">{</span>props<span class="token punctuation">.</span>children<span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>ScrollContainer<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+Scroll<span class="token punctuation">.</span>defaultProps <span class="token operator">=</span> <span class="token punctuation">{</span>
+  direction<span class="token punctuation">:</span> <span class="token string">&quot;vertical&quot;</span><span class="token punctuation">,</span>
+  click<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  refresh<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  onScroll<span class="token punctuation">:</span><span class="token keyword">null</span><span class="token punctuation">,</span>
+  pullUpLoading<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  pullDownLoading<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  pullUp<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  pullDown<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  bounceTop<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  bounceBottom<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Scroll<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+  direction<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">oneOf</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'vertical'</span><span class="token punctuation">,</span> <span class="token string">'horizental'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  refresh<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token punctuation">,</span>
+  onScroll<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>func<span class="token punctuation">,</span>
+  pullUp<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>func<span class="token punctuation">,</span>
+  pullDown<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>func<span class="token punctuation">,</span>
+  pullUpLoading<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token punctuation">,</span>
+  pullDownLoading<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token punctuation">,</span>
+  bounceTop<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token punctuation">,</span><span class="token comment">//是否支持向上吸顶</span>
+  bounceBottom<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token comment">//是否支持向上吸顶</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Scroll<span class="token punctuation">;</span>
+</code></pre></div><h2 id="在项目中应用"><a href="#在项目中应用" aria-hidden="true" class="header-anchor">#</a> 在项目中应用</h2> <p>scroll组件已经初步实现。但是，这还不够。还有一些细节，比如防抖，loading控制等等，后期会一步一步完善。更重要的是，我们还需要将它运用到项目中，进入到Recommend目录下的index.js，函数返回的JSX代码变化如下：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>Content<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>Scroll className<span class="token operator">=</span><span class="token string">&quot;list&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>Slider bannerList<span class="token operator">=</span><span class="token punctuation">{</span>bannerList<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>Slider<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>RecommendList recommendList<span class="token operator">=</span><span class="token punctuation">{</span>recommendList<span class="token punctuation">}</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>RecommendList<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Scroll<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>Content<span class="token operator">&gt;</span> 
+</code></pre></div><p>可能你会不解，Content样式组件是个什么鬼？在这里我要强调一下，better-scroll的原理并不复杂，就是在容器元素高度固定，当子元素高度超过容器元素高度时，通过transfrom动画产生滑动效果，因此它的使用原则就是外部容器必须是固定高度，不然没法滚动。而Content就是这个外部容器。</p> <p>我们在对应style.js中增加以下代码:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> styled <span class="token keyword">from</span> <span class="token string">'styled-components'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> Content <span class="token operator">=</span> styled<span class="token punctuation">.</span>div<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  position: fixed;
+  top: 90px;
+  bottom: 0;
+  width: 100%;
+</span><span class="token template-punctuation string">`</span></span>
+</code></pre></div><p>现在打开页面，你就能体会到下拉吸顶、上拉吸底的感觉了。不过还是有一个问题，当你下拉的时候，中间会有一段空白，感觉比较突兀，没错，这就是默认的背景颜色。那么怎么来解决这个问题呢？</p> <p>还是从遮罩入手吧，还记得那个.before的div吗？</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.before</span><span class="token punctuation">{</span>
+  <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+  <span class="token property">top</span><span class="token punctuation">:</span> -300px<span class="token punctuation">;</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 400px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token selector">;
+  background: $</span><span class="token punctuation">{</span>style[<span class="token string">&quot;theme-color&quot;</span>]<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>如此修改即可，这样下拉间隙就变成了主题色了。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/react-cloud-music/chapter3/list.html" class="prev">
+          推荐列表开发
+        </a></span> <span class="next"><a href="/react-cloud-music/chapter3/redux.html">
+          数据层开发
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/react-cloud-music/assets/js/app.f62a8271.js" defer></script><script src="/react-cloud-music/assets/js/2.8eb8cfb1.js" defer></script><script src="/react-cloud-music/assets/js/17.2f2c22b6.js" defer></script>
+  </body>
+</html>
